@@ -30,33 +30,79 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: IconButton(icon: Icon(Icons.add_location)),
-        leading: IconButton(icon: Icon(Icons.menu)),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.search)),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              title('future'),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                  height: 200,
-                  child: ListView(
-                    children: [cards(), cards(), cards(), cards(), cards()],
-                    scrollDirection: Axis.horizontal,
-                  )),
-            ],
+        appBar: AppBar(
+          backgroundColor: Colors.blueAccent,
+          title: IconButton(icon: Icon(Icons.add_location)),
+          leading: IconButton(icon: Icon(Icons.menu)),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.search)),
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                title('Future'),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    height: 200,
+                    child: ListView(
+                      children: [cards(), cards(), cards(), cards(), cards()],
+                      scrollDirection: Axis.horizontal,
+                    )),
+                Divider(),
+                title('Best'),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    height: 200,
+                    child: ListView(
+                      children: [cards(), cards(), cards(), cards(), cards()],
+                      scrollDirection: Axis.horizontal,
+                    )),
+                Divider(),
+                title('New'),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    height: 200,
+                    child: ListView(
+                      children: [cards(), cards(), cards(), cards(), cards()],
+                      scrollDirection: Axis.horizontal,
+                    )),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Colors.white,
+          backgroundColor: Colors.blueAccent,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Favorite',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              label: 'NearBy',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_active),
+              label: 'Notification',
+            )
+          ],
+        ));
   }
 }
 
