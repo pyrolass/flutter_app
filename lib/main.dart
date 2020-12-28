@@ -54,43 +54,99 @@ class widget extends State<MyStatefulWidget> {
             IconButton(icon: Icon(Icons.search)),
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(15.0),
+        body: Container(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                title('Future'),
+                FittedBox(
+                  child: Image.asset("assets/images/image1.jpg"),
+                  fit: BoxFit.fill,
+                ),
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                    height: 200,
-                    child: ListView(
-                      children: [cards(), cards(), cards(), cards(), cards()],
-                      scrollDirection: Axis.horizontal,
-                    )),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                      child: Row(
+                    children: [
+                      Text("Feature",
+                          style: TextStyle(
+                              color: Colors.blue.shade800, fontSize: 25)),
+                      Spacer(),
+                      Text('more')
+                    ],
+                  )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    child: Container(
+                        height: 200,
+                        child: ListView(
+                          children: [
+                            cards(),
+                            cards(),
+                            cards(),
+                            cards(),
+                            cards()
+                          ],
+                          scrollDirection: Axis.horizontal,
+                        )),
+                  ),
+                ),
                 Divider(),
-                title('Best'),
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                    height: 200,
-                    child: ListView(
-                      children: [cards(), cards(), cards(), cards(), cards()],
-                      scrollDirection: Axis.horizontal,
-                    )),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                      child: Row(
+                    children: [
+                      Text("Best",
+                          style: TextStyle(
+                              color: Colors.blue.shade800, fontSize: 25)),
+                      Spacer(),
+                      Text('more')
+                    ],
+                  )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                      height: 200,
+                      child: ListView(
+                        children: [cards(), cards(), cards(), cards(), cards()],
+                        scrollDirection: Axis.horizontal,
+                      )),
+                ),
                 Divider(),
-                title('New'),
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                    height: 200,
-                    child: ListView(
-                      children: [cards(), cards(), cards(), cards(), cards()],
-                      scrollDirection: Axis.horizontal,
-                    )),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                      child: Row(
+                    children: [
+                      Text("New",
+                          style: TextStyle(
+                              color: Colors.blue.shade800, fontSize: 25)),
+                      Spacer(),
+                      Text('more')
+                    ],
+                  )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                      height: 200,
+                      child: ListView(
+                        children: [cards(), cards(), cards(), cards(), cards()],
+                        scrollDirection: Axis.horizontal,
+                      )),
+                ),
               ],
             ),
           ),
