@@ -10,12 +10,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "test",
-      home: Home(),
+      home: MyStatefulWidget(),
     );
   }
 }
 
-class Home extends StatelessWidget {
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  widget createState() => widget();
+}
+
+class widget extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      Colors.red;
+    });
+  }
+
   title(String title) {
     return Row(
       children: [
@@ -102,6 +118,8 @@ class Home extends StatelessWidget {
               label: 'Notification',
             )
           ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
         ));
   }
 }
