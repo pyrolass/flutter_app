@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+
+import 'card.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,8 +19,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
-
   @override
   widget createState() => widget();
 }
@@ -43,6 +44,15 @@ class widget extends State<MyStatefulWidget> {
     );
   }
 
+  final List<String> myImages = [
+    "assets/images/image1.jpg",
+    "assets/images/image2.jpeg",
+    "assets/images/image3.jpeg",
+    "assets/images/image4.jpg",
+  ];
+
+  int currentImage = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +68,60 @@ class widget extends State<MyStatefulWidget> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                FittedBox(
-                  child: Image.asset("assets/images/image1.jpg"),
-                  fit: BoxFit.fill,
+                /**
+              */
+
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  child: Stack(
+                    children: [
+                      PageView.builder(
+                        scrollDirection: Axis.horizontal,
+                        onPageChanged: (value) {
+                          setState(() {
+                            this.currentImage = value;
+                          });
+                        },
+                        itemCount: myImages.length,
+                        itemBuilder: (context, index) => Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          child: Image.asset(
+                            myImages[index],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: 30,
+                          margin: EdgeInsets.only(bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ...List.generate(
+                                4,
+                                (index) => Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: ShapeDecoration(
+                                    shape: CircleBorder(),
+                                    color: index == this.currentImage
+                                        ? Colors.blue
+                                        : Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
@@ -69,11 +130,11 @@ class widget extends State<MyStatefulWidget> {
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
                       child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Feature",
                           style: TextStyle(
                               color: Colors.blue.shade800, fontSize: 25)),
-                      Spacer(),
                       Text('more')
                     ],
                   )),
@@ -85,17 +146,21 @@ class widget extends State<MyStatefulWidget> {
                         height: 200,
                         child: ListView(
                           children: [
-                            cards(),
-                            cards(),
-                            cards(),
-                            cards(),
-                            cards()
+                            Cards(),
+                            Cards(),
+                            Cards(),
+                            Cards(),
+                            Cards(),
                           ],
                           scrollDirection: Axis.horizontal,
                         )),
                   ),
                 ),
-                Divider(),
+                Divider(
+                  thickness: 1.8,
+                  endIndent: 15,
+                  indent: 15,
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -103,11 +168,11 @@ class widget extends State<MyStatefulWidget> {
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
                       child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Best",
                           style: TextStyle(
                               color: Colors.blue.shade800, fontSize: 25)),
-                      Spacer(),
                       Text('more')
                     ],
                   )),
@@ -117,11 +182,21 @@ class widget extends State<MyStatefulWidget> {
                   child: Container(
                       height: 200,
                       child: ListView(
-                        children: [cards(), cards(), cards(), cards(), cards()],
+                        children: [
+                          Cards(),
+                          Cards(),
+                          Cards(),
+                          Cards(),
+                          Cards(),
+                        ],
                         scrollDirection: Axis.horizontal,
                       )),
                 ),
-                Divider(),
+                Divider(
+                  thickness: 1.8,
+                  endIndent: 15,
+                  indent: 15,
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -129,11 +204,11 @@ class widget extends State<MyStatefulWidget> {
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
                       child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("New",
                           style: TextStyle(
                               color: Colors.blue.shade800, fontSize: 25)),
-                      Spacer(),
                       Text('more')
                     ],
                   )),
@@ -143,7 +218,13 @@ class widget extends State<MyStatefulWidget> {
                   child: Container(
                       height: 200,
                       child: ListView(
-                        children: [cards(), cards(), cards(), cards(), cards()],
+                        children: [
+                          Cards(),
+                          Cards(),
+                          Cards(),
+                          Cards(),
+                          Cards(),
+                        ],
                         scrollDirection: Axis.horizontal,
                       )),
                 ),
@@ -177,38 +258,5 @@ class widget extends State<MyStatefulWidget> {
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
         ));
-  }
-}
-
-class cards extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 100,
-      child: Card(
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/images/image1.jpg'))),
-            ),
-            Container(
-              child: Text("world wonders"),
-            ),
-            Container(
-              child: Text("world wonders"),
-            ),
-            Container(
-              child: Text("world wonders"),
-            )
-          ],
-        ),
-      ),
-    );
   }
 }
