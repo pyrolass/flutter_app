@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app/SideMenu.dart';
+import 'package:flutter_app/UserView.dart';
 
 import 'card.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "test",
-      home: MyStatefulWidget(),
+      home: UserView(),
     );
   }
 }
