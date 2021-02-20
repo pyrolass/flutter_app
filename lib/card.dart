@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Cards extends StatelessWidget {
+  String txt1;
+  String txt2;
+  String txt3;
+  int imgNum;
+
+  List<String> images = [
+    "assets/images/image1.jpg",
+    "assets/images/image2.jpeg",
+    "assets/images/image3.jpeg",
+    "assets/images/image4.jpg",
+  ];
+
+  Cards(this.txt1, this.txt2, this.txt3, this.imgNum) {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +31,7 @@ class Cards extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(
-                    'assets/images/image1.jpg',
+                    images[imgNum],
                   ),
                 ),
               ),
@@ -31,13 +44,13 @@ class Cards extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  child: Text("world wonders"),
+                  child: Text(txt1),
                 ),
                 Container(
-                  child: Text("world wonders"),
+                  child: Text(txt2),
                 ),
                 Container(
-                  child: Text("world wonders"),
+                  child: Text(txt3),
                 )
               ],
             ),

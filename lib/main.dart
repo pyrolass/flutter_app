@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_app/SideMenu.dart';
 
 import 'card.dart';
 
@@ -33,17 +34,6 @@ class widget extends State<MyStatefulWidget> {
     });
   }
 
-  title(String title) {
-    return Row(
-      children: [
-        Text(title,
-            style: TextStyle(color: Colors.blue.shade800, fontSize: 25)),
-        Spacer(),
-        Text("more"),
-      ],
-    );
-  }
-
   final List<String> myImages = [
     "assets/images/image1.jpg",
     "assets/images/image2.jpeg",
@@ -59,18 +49,15 @@ class widget extends State<MyStatefulWidget> {
         appBar: AppBar(
           backgroundColor: Colors.blueAccent,
           title: IconButton(icon: Icon(Icons.add_location)),
-          leading: IconButton(icon: Icon(Icons.menu)),
           actions: <Widget>[
             IconButton(icon: Icon(Icons.search)),
           ],
         ),
+        drawer: SideMenu(),
         body: Container(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                /**
-              */
-
                 Container(
                   width: double.infinity,
                   height: 200,
@@ -146,11 +133,11 @@ class widget extends State<MyStatefulWidget> {
                         height: 200,
                         child: ListView(
                           children: [
-                            Cards(),
-                            Cards(),
-                            Cards(),
-                            Cards(),
-                            Cards(),
+                            Cards("las", "zozk", "sulaiman", 0),
+                            Cards("las", "zozk", "sulaiman", 1),
+                            Cards("las", "zozk", "sulaiman", 2),
+                            Cards("las", "zozk", "sulaiman", 3),
+                            Cards("las", "zozk", "sulaiman", 0),
                           ],
                           scrollDirection: Axis.horizontal,
                         )),
@@ -183,11 +170,11 @@ class widget extends State<MyStatefulWidget> {
                       height: 200,
                       child: ListView(
                         children: [
-                          Cards(),
-                          Cards(),
-                          Cards(),
-                          Cards(),
-                          Cards(),
+                          Cards("las", "zozk", "sulaiman", 0),
+                          Cards("las", "zozk", "sulaiman", 1),
+                          Cards("las", "zozk", "sulaiman", 2),
+                          Cards("las", "zozk", "sulaiman", 3),
+                          Cards("las", "zozk", "sulaiman", 0),
                         ],
                         scrollDirection: Axis.horizontal,
                       )),
@@ -219,11 +206,11 @@ class widget extends State<MyStatefulWidget> {
                       height: 200,
                       child: ListView(
                         children: [
-                          Cards(),
-                          Cards(),
-                          Cards(),
-                          Cards(),
-                          Cards(),
+                          Cards("las", "zozk", "sulaiman", 0),
+                          Cards("las", "zozk", "sulaiman", 1),
+                          Cards("las", "zozk", "sulaiman", 2),
+                          Cards("las", "zozk", "sulaiman", 3),
+                          Cards("las", "zozk", "sulaiman", 0),
                         ],
                         scrollDirection: Axis.horizontal,
                       )),
@@ -232,31 +219,35 @@ class widget extends State<MyStatefulWidget> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorite',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              label: 'NearBy',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_active),
-              label: 'Notification',
-            )
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(25), topLeft: Radius.circular(25)),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            unselectedItemColor: Colors.white,
+            selectedItemColor: Colors.yellow,
+            backgroundColor: Colors.blueAccent,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite),
+                label: 'Favorite',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.explore),
+                label: 'NearBy',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.notifications_active),
+                label: 'Notification',
+              )
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+          ),
         ));
   }
 }
