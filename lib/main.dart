@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "test",
-      home: UserView(),
+      home: MyStatefulWidget(),
     );
   }
 }
@@ -47,6 +47,7 @@ class widget extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        extendBody: true,
         appBar: AppBar(
           backgroundColor: Colors.blueAccent,
           title: IconButton(icon: Icon(Icons.add_location)),
@@ -56,6 +57,7 @@ class widget extends State<MyStatefulWidget> {
         ),
         drawer: SideMenu(),
         body: Container(
+          color: Colors.red,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -134,11 +136,46 @@ class widget extends State<MyStatefulWidget> {
                         height: 200,
                         child: ListView(
                           children: [
-                            Cards("las", "zozk", "sulaiman", 0),
-                            Cards("las", "zozk", "sulaiman", 1),
-                            Cards("las", "zozk", "sulaiman", 2),
-                            Cards("las", "zozk", "sulaiman", 3),
-                            Cards("las", "zozk", "sulaiman", 0),
+                            FlatButton(
+                                child: Cards("las", "zozk", "sulaiman", 0),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => UserView()));
+                                }),
+                            FlatButton(
+                                child: Cards("las", "zozk", "sulaiman", 1),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => UserView()));
+                                }),
+                            FlatButton(
+                                child: Cards("las", "zozk", "sulaiman", 2),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => UserView()));
+                                }),
+                            FlatButton(
+                                child: Cards("las", "zozk", "sulaiman", 3),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => UserView()));
+                                }),
+                            FlatButton(
+                                child: Cards("las", "zozk", "sulaiman", 0),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => UserView()));
+                                }),
                           ],
                           scrollDirection: Axis.horizontal,
                         )),
@@ -171,11 +208,46 @@ class widget extends State<MyStatefulWidget> {
                       height: 200,
                       child: ListView(
                         children: [
-                          Cards("las", "zozk", "sulaiman", 0),
-                          Cards("las", "zozk", "sulaiman", 1),
-                          Cards("las", "zozk", "sulaiman", 2),
-                          Cards("las", "zozk", "sulaiman", 3),
-                          Cards("las", "zozk", "sulaiman", 0),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 0),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 1),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 2),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 3),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 0),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
                         ],
                         scrollDirection: Axis.horizontal,
                       )),
@@ -207,11 +279,46 @@ class widget extends State<MyStatefulWidget> {
                       height: 200,
                       child: ListView(
                         children: [
-                          Cards("las", "zozk", "sulaiman", 0),
-                          Cards("las", "zozk", "sulaiman", 1),
-                          Cards("las", "zozk", "sulaiman", 2),
-                          Cards("las", "zozk", "sulaiman", 3),
-                          Cards("las", "zozk", "sulaiman", 0),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 0),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 1),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 2),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 3),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
+                          FlatButton(
+                              child: Cards("las", "zozk", "sulaiman", 0),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UserView()));
+                              }),
                         ],
                         scrollDirection: Axis.horizontal,
                       )),

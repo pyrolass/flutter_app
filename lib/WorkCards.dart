@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UserView.dart';
 
-class Cards extends StatelessWidget {
-  String txt1;
-  String txt2;
-  String txt3;
+class WorkCards extends StatelessWidget {
   int imgNum;
 
   List<String> images = [
@@ -14,7 +11,7 @@ class Cards extends StatelessWidget {
     "assets/images/image4.jpg",
   ];
 
-  Cards(this.txt1, this.txt2, this.txt3, this.imgNum) {}
+  WorkCards(this.imgNum) {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +24,7 @@ class Cards extends StatelessWidget {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 100,
+              height: 172,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
@@ -39,21 +36,6 @@ class Cards extends StatelessWidget {
             ),
             SizedBox(
               height: 20,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  child: Text(txt1),
-                ),
-                Container(
-                  child: Text(txt2),
-                ),
-                Container(
-                  child: Text(txt3),
-                )
-              ],
             ),
           ],
         ),

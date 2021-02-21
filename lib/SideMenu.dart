@@ -48,7 +48,7 @@ class SideMenu extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.input),
                   title: Text('sign in'),
-                  onTap: () => {},
+                  onTap: () => {Navigator.of(context).pop()},
                 ),
                 ListTile(
                   leading: Icon(Icons.verified_user),
