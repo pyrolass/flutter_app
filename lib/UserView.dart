@@ -26,8 +26,12 @@ class UserView extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Divider(
+                    thickness: 1.8,
+                    endIndent: 15,
+                    indent: 15,
+                  ),
                   Container(
-                    color: Colors.white,
                     width: MediaQuery.of(context).size.width,
                     height: 100,
                     child: Column(
@@ -49,15 +53,38 @@ class UserView extends StatelessWidget {
                 left: 30,
                 right: 300,
               ),
+              Positioned(
+                top: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Icon(Icons.arrow_back),
+                ),
+              ),
+              Positioned(
+                  top: 50,
+                  left: 370,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(25),
+                        topLeft: Radius.circular(25)),
+                    child: Container(
+                      color: Colors.blueAccent,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Icon(Icons.favorite),
+                      ),
+                    ),
+                  ))
             ],
           ),
           Divider(
             thickness: 1.8,
             endIndent: 15,
             indent: 15,
-          ),
-          SizedBox(
-            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
@@ -72,19 +99,11 @@ class UserView extends StatelessWidget {
               ],
             )),
           ),
-          Divider(
-            thickness: 1.8,
-            endIndent: 15,
-            indent: 15,
-          ),
-          SizedBox(
-            height: 10,
-          ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
               child: Container(
-                  height: 200,
+                  height: 150,
                   child: ListView(
                     children: [
                       FlatButton(child: WorkCards(0), onPressed: () {}),
@@ -97,7 +116,50 @@ class UserView extends StatelessWidget {
                   )),
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              ),
+              CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              ),
+              CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              ),
+              CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              ),
+            ],
+          )
         ],
+      ),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(25), topLeft: Radius.circular(25)),
+        child: Container(
+          height: 60,
+          color: Colors.blueAccent,
+          child: InkWell(
+            onTap: () => print('tap on close'),
+            child: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.call,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

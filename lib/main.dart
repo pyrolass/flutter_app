@@ -57,7 +57,7 @@ class widget extends State<MyStatefulWidget> {
         ),
         drawer: SideMenu(),
         body: Container(
-          color: Colors.red,
+          color: Colors.white,
           child: SingleChildScrollView(
             child: Column(
               children: [

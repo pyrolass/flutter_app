@@ -15,29 +15,27 @@ class WorkCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 200,
-      child: Card(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 172,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    images[imgNum],
+      height: 150,
+      width: 140,
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+        child: Card(
+          child: Column(
+            children: [
+              Container(
+                width: 150,
+                height: 142,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(
+                      images[imgNum],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
