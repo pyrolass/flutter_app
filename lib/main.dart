@@ -26,6 +26,7 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class widget extends State<MyStatefulWidget> {
+  int imgNo;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {

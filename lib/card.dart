@@ -15,6 +15,7 @@ class Cards extends StatelessWidget {
   ];
 
   Cards(this.txt1, this.txt2, this.txt3, this.imgNum) {}
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

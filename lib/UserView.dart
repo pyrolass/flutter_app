@@ -36,9 +36,18 @@ class UserView extends StatelessWidget {
                     height: 100,
                     child: Column(
                       children: [
-                        Text("name:las zozk sulaiman"),
-                        Text("name:las zozk sulaiman"),
-                        Text("name:las zozk sulaiman"),
+                        Text(
+                          "name:las zozk sulaiman",
+                          style: TextStyle(color: Colors.blueAccent),
+                        ),
+                        Text(
+                          "phone:0750-446-3073",
+                          style: TextStyle(color: Colors.blueAccent),
+                        ),
+                        Text(
+                          "job:ios dev",
+                          style: TextStyle(color: Colors.blueAccent),
+                        ),
                       ],
                     ),
                   ),
@@ -116,24 +125,56 @@ class UserView extends StatelessWidget {
                   )),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("Rate me",
+                    style:
+                        TextStyle(color: Colors.blue.shade800, fontSize: 20)),
+              ],
+            )),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage("assets/images/image1.jpg"),
+                ),
               ),
-              CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage("assets/images/image1.jpg"),
+                ),
               ),
-              CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage("assets/images/image1.jpg"),
+                ),
               ),
-              CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage("assets/images/image1.jpg"),
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage("assets/images/image1.jpg"),
+                ),
               ),
             ],
           )
