@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SideMenu extends StatelessWidget {
   @override
@@ -68,31 +69,31 @@ class SideMenu extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                FlatButton(
-                  onPressed: () {
+                InkWell(
+                  onTap: () {
                     Navigator.of(context).pop();
                   },
                   child: CircleAvatar(
+                    child: Icon(FontAwesomeIcons.twitter),
                     radius: 30,
-                    backgroundImage: AssetImage("assets/images/image1.jpg"),
                   ),
                 ),
-                FlatButton(
-                  onPressed: () {
+                InkWell(
+                  onTap: () {
                     Navigator.of(context).pop();
                   },
                   child: CircleAvatar(
+                    child: Icon(FontAwesomeIcons.facebook),
                     radius: 30,
-                    backgroundImage: AssetImage("assets/images/image1.jpg"),
                   ),
                 ),
-                FlatButton(
-                  onPressed: () {
+                InkWell(
+                  onTap: () {
                     Navigator.of(context).pop();
                   },
                   child: CircleAvatar(
+                    child: Icon(FontAwesomeIcons.instagram),
                     radius: 30,
-                    backgroundImage: AssetImage("assets/images/image1.jpg"),
                   ),
                 ),
               ],

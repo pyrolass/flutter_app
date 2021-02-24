@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UserView.dart';
+import 'Data.dart';
 
 class Cards extends StatelessWidget {
   String txt1;
   String txt2;
   String txt3;
   int imgNum;
+  int id;
+  Map cardsMap = {
+    'id': int,
+    'firstRow': String,
+    'secondRow': String,
+    'thirdRow': String,
+    'imgNo': int
+  };
 
   List<String> images = [
     "assets/images/image1.jpg",

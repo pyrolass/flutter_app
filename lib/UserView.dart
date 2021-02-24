@@ -1,10 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/WorkCards.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'card.dart';
 
 class UserView extends StatelessWidget {
+  final int imageIndex;
+
+  UserView({Key key, @required this.imageIndex}) : super(key: key);
+
+  final List<String> myImages = [
+    "assets/images/image1.jpg",
+    "assets/images/image2.jpeg",
+    "assets/images/image3.jpeg",
+    "assets/images/image4.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +69,7 @@ class UserView extends StatelessWidget {
               Positioned(
                 child: CircleAvatar(
                   radius: 80,
-                  backgroundImage: AssetImage("assets/images/image1.jpg"),
+                  backgroundImage: AssetImage(myImages[imageIndex]),
                 ),
                 top: 170,
                 left: 30,
@@ -137,6 +150,45 @@ class UserView extends StatelessWidget {
               ],
             )),
           ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                RatingBar.builder(
+                  initialRating: 3,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  itemCount: 5,
+                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                  itemBuilder: (context, _) => Icon(
+                    Icons.star,
+                    color: Colors.blueAccent,
+                  ),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
+                ),
+                Container(
+                  width: 150,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: ElevatedButton(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(FontAwesomeIcons.star),
+                          Text("Rating"),
+                        ],
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -145,8 +197,8 @@ class UserView extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: CircleAvatar(
+                  child: Icon(FontAwesomeIcons.twitter),
                   radius: 30,
-                  backgroundImage: AssetImage("assets/images/image1.jpg"),
                 ),
               ),
               FlatButton(
@@ -154,8 +206,8 @@ class UserView extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: CircleAvatar(
+                  child: Icon(FontAwesomeIcons.facebook),
                   radius: 30,
-                  backgroundImage: AssetImage("assets/images/image1.jpg"),
                 ),
               ),
               FlatButton(
@@ -163,8 +215,8 @@ class UserView extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: CircleAvatar(
+                  child: Icon(FontAwesomeIcons.instagram),
                   radius: 30,
-                  backgroundImage: AssetImage("assets/images/image1.jpg"),
                 ),
               ),
               FlatButton(
@@ -172,8 +224,8 @@ class UserView extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: CircleAvatar(
+                  child: Icon(FontAwesomeIcons.tiktok),
                   radius: 30,
-                  backgroundImage: AssetImage("assets/images/image1.jpg"),
                 ),
               ),
             ],
