@@ -3,27 +3,10 @@ import 'package:flutter_app/UserView.dart';
 import 'Data.dart';
 
 class Cards extends StatelessWidget {
-  String txt1;
-  String txt2;
-  String txt3;
-  int imgNum;
-  int id;
-  Map cardsMap = {
-    'id': int,
-    'firstRow': String,
-    'secondRow': String,
-    'thirdRow': String,
-    'imgNo': int
-  };
+  final user;
+  final index;
 
-  List<String> images = [
-    "assets/images/image1.jpg",
-    "assets/images/image2.jpeg",
-    "assets/images/image3.jpeg",
-    "assets/images/image4.jpg",
-  ];
-
-  Cards(this.txt1, this.txt2, this.txt3, this.imgNum) {}
+  Cards(this.user, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +26,7 @@ class Cards extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(
-                      images[imgNum],
-                    ),
+                    image: AssetImage(user[index].profileImg),
                   ),
                 ),
               ),
@@ -57,13 +38,13 @@ class Cards extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    child: Text(txt1),
+                    child: Text(user[index].name),
                   ),
                   Container(
-                    child: Text(txt2),
+                    child: Text(user[index].phoneNum),
                   ),
                   Container(
-                    child: Text(txt3),
+                    child: Text(user[index].job),
                   )
                 ],
               ),

@@ -2,16 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/UserView.dart';
 
 class WorkCards extends StatelessWidget {
-  int imgNum;
+  final workImage;
 
-  List<String> images = [
-    "assets/images/image1.jpg",
-    "assets/images/image2.jpeg",
-    "assets/images/image3.jpeg",
-    "assets/images/image4.jpg",
-  ];
-
-  WorkCards(this.imgNum) {}
+  WorkCards(this.workImage) {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,9 +21,7 @@ class WorkCards extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(
-                      images[imgNum],
-                    ),
+                    image: AssetImage(workImage),
                   ),
                 ),
               ),

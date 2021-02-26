@@ -6,6 +6,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app/SideMenu.dart';
 import 'package:flutter_app/UserView.dart';
+import 'package:flutter_app/best_row.dart';
+import 'package:flutter_app/feature_row.dart';
+import 'package:flutter_app/new_row.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'card.dart';
@@ -30,7 +33,6 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class widget extends State<MyStatefulWidget> {
-  int imgNum;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -120,86 +122,7 @@ class widget extends State<MyStatefulWidget> {
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Feature",
-                        style: TextStyle(
-                            color: Colors.blue.shade800, fontSize: 25)),
-                    Text('more')
-                  ],
-                )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                  child: Container(
-                      height: 200,
-                      child: ListView(
-                        children: [
-                          FlatButton(
-                              child: Cards("las", "zozk", "sulaiman", 0),
-                              onPressed: () {
-                                imgNum = 0;
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => UserView(
-                                              imageIndex: imgNum,
-                                            )));
-                              }),
-                          FlatButton(
-                              child: Cards("las", "zozk", "sulaiman", 1),
-                              onPressed: () {
-                                imgNum = 1;
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => UserView(
-                                              imageIndex: imgNum,
-                                            )));
-                              }),
-                          FlatButton(
-                              child: Cards("las", "zozk", "sulaiman", 2),
-                              onPressed: () {
-                                imgNum = 2;
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => UserView(
-                                              imageIndex: imgNum,
-                                            )));
-                              }),
-                          FlatButton(
-                              child: Cards("las", "zozk", "sulaiman", 3),
-                              onPressed: () {
-                                imgNum = 3;
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => UserView(
-                                              imageIndex: imgNum,
-                                            )));
-                              }),
-                          FlatButton(
-                              child: Cards("las", "zozk", "sulaiman", 0),
-                              onPressed: () {
-                                imgNum = 0;
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => UserView(
-                                              imageIndex: imgNum,
-                                            )));
-                              }),
-                        ],
-                        scrollDirection: Axis.horizontal,
-                      )),
-                ),
-              ),
+              FeatureRow(),
               Divider(
                 thickness: 1.8,
                 endIndent: 15,
@@ -208,84 +131,7 @@ class widget extends State<MyStatefulWidget> {
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Best",
-                        style: TextStyle(
-                            color: Colors.blue.shade800, fontSize: 25)),
-                    Text('more')
-                  ],
-                )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                    height: 200,
-                    child: ListView(
-                      children: [
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 0),
-                            onPressed: () {
-                              imgNum = 0;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 1),
-                            onPressed: () {
-                              imgNum = 1;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 2),
-                            onPressed: () {
-                              imgNum = 2;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 3),
-                            onPressed: () {
-                              imgNum = 3;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 0),
-                            onPressed: () {
-                              imgNum = 0;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                      ],
-                      scrollDirection: Axis.horizontal,
-                    )),
-              ),
+              BestRow(),
               Divider(
                 thickness: 1.8,
                 endIndent: 15,
@@ -294,84 +140,7 @@ class widget extends State<MyStatefulWidget> {
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("New",
-                        style: TextStyle(
-                            color: Colors.blue.shade800, fontSize: 25)),
-                    Text('more')
-                  ],
-                )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                    height: 200,
-                    child: ListView(
-                      children: [
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 0),
-                            onPressed: () {
-                              imgNum = 0;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 1),
-                            onPressed: () {
-                              imgNum = 1;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 2),
-                            onPressed: () {
-                              imgNum = 2;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 3),
-                            onPressed: () {
-                              imgNum = 3;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                        FlatButton(
-                            child: Cards("las", "zozk", "sulaiman", 0),
-                            onPressed: () {
-                              imgNum = 0;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserView(
-                                            imageIndex: imgNum,
-                                          )));
-                            }),
-                      ],
-                      scrollDirection: Axis.horizontal,
-                    )),
-              ),
+              NewRow(),
             ],
           ),
         ),

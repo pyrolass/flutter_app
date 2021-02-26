@@ -1,22 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/WorkCards.dart';
+import 'package:flutter_app/my_works.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'card.dart';
 
 class UserView extends StatelessWidget {
-  final int imageIndex;
+  final user;
+  final index;
 
-  UserView({Key key, @required this.imageIndex}) : super(key: key);
-
-  final List<String> myImages = [
-    "assets/images/image1.jpg",
-    "assets/images/image2.jpeg",
-    "assets/images/image3.jpeg",
-    "assets/images/image4.jpg",
-  ];
+  UserView(this.user, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +28,7 @@ class UserView extends StatelessWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage(
-                          "assets/images/map.png",
-                        ),
+                        image: AssetImage(user[index].mapImg),
                       ),
                     ),
                   ),
@@ -50,15 +43,15 @@ class UserView extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "name:las zozk sulaiman",
+                          user[index].name,
                           style: TextStyle(color: Colors.blueAccent),
                         ),
                         Text(
-                          "phone:0750-446-3073",
+                          user[index].phoneNum,
                           style: TextStyle(color: Colors.blueAccent),
                         ),
                         Text(
-                          "job:ios dev",
+                          user[index].job,
                           style: TextStyle(color: Colors.blueAccent),
                         ),
                       ],
@@ -69,7 +62,7 @@ class UserView extends StatelessWidget {
               Positioned(
                 child: CircleAvatar(
                   radius: 80,
-                  backgroundImage: AssetImage(myImages[imageIndex]),
+                  backgroundImage: AssetImage(user[index].profileImg),
                 ),
                 top: 170,
                 left: 30,
@@ -108,36 +101,7 @@ class UserView extends StatelessWidget {
             endIndent: 15,
             indent: 15,
           ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Container(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("my works",
-                    style:
-                        TextStyle(color: Colors.blue.shade800, fontSize: 20)),
-                Text('more')
-              ],
-            )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Container(
-              child: Container(
-                  height: 150,
-                  child: ListView(
-                    children: [
-                      FlatButton(child: WorkCards(0), onPressed: () {}),
-                      FlatButton(child: WorkCards(0), onPressed: () {}),
-                      FlatButton(child: WorkCards(0), onPressed: () {}),
-                      FlatButton(child: WorkCards(0), onPressed: () {}),
-                      FlatButton(child: WorkCards(0), onPressed: () {}),
-                    ],
-                    scrollDirection: Axis.horizontal,
-                  )),
-            ),
-          ),
+          MyWorks(user, index),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
@@ -155,7 +119,7 @@ class UserView extends StatelessWidget {
             child: Column(
               children: [
                 RatingBar.builder(
-                  initialRating: 3,
+                  initialRating: user[index].rating,
                   minRating: 1,
                   direction: Axis.horizontal,
                   itemCount: 5,
