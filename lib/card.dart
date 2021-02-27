@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UserView.dart';
 import 'Data.dart';
-
 class Cards extends StatelessWidget {
   final user;
   final index;
