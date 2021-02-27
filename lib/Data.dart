@@ -8,7 +8,7 @@ class Data {
   final String profileImg;
   final List<String> workImg;
   final String mapImg;
-  final int rating;
+  final double rating;
 
   const Data({
     @required this.id,
